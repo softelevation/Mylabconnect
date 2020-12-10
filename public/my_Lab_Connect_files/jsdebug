@@ -1,0 +1,1805 @@
+Type.registerNamespace('ASB');
+ASB.WebService=function() {
+ASB.WebService.initializeBase(this);
+this._timeout = 0;
+this._userContext = null;
+this._succeeded = null;
+this._failed = null;
+}
+ASB.WebService.prototype={
+_get_path:function() {
+ var p = this.get_path();
+ if (p) return p;
+ else return ASB.WebService._staticInstance.get_path();},
+UpdateTheme:function(theme,trace,succeededCallback, failedCallback, userContext) {
+/// <param name="theme" type="String">System.String</param>
+/// <param name="trace" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'UpdateTheme',false,{theme:theme,trace:trace},succeededCallback,failedCallback,userContext); },
+SaveDataXML:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,files,rid,delRows,changedRows,key,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="files" type="String">System.String</param>
+/// <param name="rid" type="String">System.String</param>
+/// <param name="delRows" type="String">System.String</param>
+/// <param name="changedRows" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'SaveDataXML',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,files:files,rid:rid,delRows:delRows,changedRows:changedRows,key:key},succeededCallback,failedCallback,userContext); },
+RemoveNewFiles:function(f,sid,succeededCallback, failedCallback, userContext) {
+/// <param name="f" type="String">System.String</param>
+/// <param name="sid" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'RemoveNewFiles',false,{f:f,sid:sid},succeededCallback,failedCallback,userContext); },
+DeleteDataXML:function(rid,s,key,allowCancel,succeededCallback, failedCallback, userContext) {
+/// <param name="rid" type="String">System.String</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="allowCancel" type="Boolean">System.Boolean</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'DeleteDataXML',false,{rid:rid,s:s,key:key,allowCancel:allowCancel},succeededCallback,failedCallback,userContext); },
+DeleteRowWS:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,s,key,dcNo,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="ArrActionLog" type="String">System.String</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="dcNo" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'DeleteRowWS',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,ArrActionLog:ArrActionLog,s:s,key:key,dcNo:dcNo},succeededCallback,failedCallback,userContext); },
+DeleteRowPerfWS:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,s,key,dcNo,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="ArrActionLog" type="String">System.String</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="dcNo" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'DeleteRowPerfWS',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,ArrActionLog:ArrActionLog,s:s,key:key,dcNo:dcNo},succeededCallback,failedCallback,userContext); },
+AddRowWS:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,s,dcNo,key,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="dcNo" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'AddRowWS',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,s:s,dcNo:dcNo,key:key},succeededCallback,failedCallback,userContext); },
+AddRowPerfWS:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,s,dcNo,key,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="dcNo" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'AddRowPerfWS',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,s:s,dcNo:dcNo,key:key},succeededCallback,failedCallback,userContext); },
+CreatePDF:function(s,key,succeededCallback, failedCallback, userContext) {
+/// <param name="s" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'CreatePDF',false,{s:s,key:key},succeededCallback,failedCallback,userContext); },
+CreateFastReportPDF:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,s,key,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'CreateFastReportPDF',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,s:s,key:key},succeededCallback,failedCallback,userContext); },
+CallActionWS:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,visibleDcs,s,f,source,delRows,changedRows,key,files,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="ArrActionLog" type="String">System.String</param>
+/// <param name="visibleDcs" type="String">System.String</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="f" type="String">System.String</param>
+/// <param name="source" type="String">System.String</param>
+/// <param name="delRows" type="String">System.String</param>
+/// <param name="changedRows" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="files" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'CallActionWS',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,ArrActionLog:ArrActionLog,visibleDcs:visibleDcs,s:s,f:f,source:source,delRows:delRows,changedRows:changedRows,key:key,files:files},succeededCallback,failedCallback,userContext); },
+ViewAttachment:function(s,key,succeededCallback, failedCallback, userContext) {
+/// <param name="s" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'ViewAttachment',false,{s:s,key:key},succeededCallback,failedCallback,userContext); },
+RemoveAttachment:function(s,key,succeededCallback, failedCallback, userContext) {
+/// <param name="s" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'RemoveAttachment',false,{s:s,key:key},succeededCallback,failedCallback,userContext); },
+DeleteIviewRow:function(recIds,transid,s,succeededCallback, failedCallback, userContext) {
+/// <param name="recIds" type="String">System.String</param>
+/// <param name="transid" type="String">System.String</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'DeleteIviewRow',false,{recIds:recIds,transid:transid,s:s},succeededCallback,failedCallback,userContext); },
+GetDepFlds:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,visibleDcs,s,tid,key,frameNo,rowNo,fieldName,subGridInfo,parentInfo,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="ArrActionLog" type="String">System.String</param>
+/// <param name="visibleDcs" type="String">System.String</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="tid" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="rowNo" type="String">System.String</param>
+/// <param name="fieldName" type="String">System.String</param>
+/// <param name="subGridInfo" type="String">System.String</param>
+/// <param name="parentInfo" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetDepFlds',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,ArrActionLog:ArrActionLog,visibleDcs:visibleDcs,s:s,tid:tid,key:key,frameNo:frameNo,rowNo:rowNo,fieldName:fieldName,subGridInfo:subGridInfo,parentInfo:parentInfo},succeededCallback,failedCallback,userContext); },
+GetDepFldsPerf:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,visibleDcs,s,tid,key,frameNo,rowNo,perfDepFldName,fieldName,subGridInfo,parentInfo,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="ArrActionLog" type="String">System.String</param>
+/// <param name="visibleDcs" type="String">System.String</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="tid" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="rowNo" type="String">System.String</param>
+/// <param name="perfDepFldName" type="String">System.String</param>
+/// <param name="fieldName" type="String">System.String</param>
+/// <param name="subGridInfo" type="String">System.String</param>
+/// <param name="parentInfo" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetDepFldsPerf',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,ArrActionLog:ArrActionLog,visibleDcs:visibleDcs,s:s,tid:tid,key:key,frameNo:frameNo,rowNo:rowNo,perfDepFldName:perfDepFldName,fieldName:fieldName,subGridInfo:subGridInfo,parentInfo:parentInfo},succeededCallback,failedCallback,userContext); },
+GetRapidDepFlds:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,visibleDcs,s,tid,key,frameNo,rowNo,fieldName,subGridInfo,parentInfo,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="ArrActionLog" type="String">System.String</param>
+/// <param name="visibleDcs" type="String">System.String</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="tid" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="rowNo" type="String">System.String</param>
+/// <param name="fieldName" type="String">System.String</param>
+/// <param name="subGridInfo" type="String">System.String</param>
+/// <param name="parentInfo" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetRapidDepFlds',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,ArrActionLog:ArrActionLog,visibleDcs:visibleDcs,s:s,tid:tid,key:key,frameNo:frameNo,rowNo:rowNo,fieldName:fieldName,subGridInfo:subGridInfo,parentInfo:parentInfo},succeededCallback,failedCallback,userContext); },
+GetSearchResult:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,fldName,fldValue,pageNo,pageSize,key,frameNo,activerow,parentInfo,subGridInfo,includeDcs,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldName" type="String">System.String</param>
+/// <param name="fldValue" type="String">System.String</param>
+/// <param name="pageNo" type="String">System.String</param>
+/// <param name="pageSize" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="activerow" type="String">System.String</param>
+/// <param name="parentInfo" type="String">System.String</param>
+/// <param name="subGridInfo" type="String">System.String</param>
+/// <param name="includeDcs" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetSearchResult',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,fldName:fldName,fldValue:fldValue,pageNo:pageNo,pageSize:pageSize,key:key,frameNo:frameNo,activerow:activerow,parentInfo:parentInfo,subGridInfo:subGridInfo,includeDcs:includeDcs},succeededCallback,failedCallback,userContext); },
+CallLoadDcData:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,iXml,dcNo,isFillGrid,isDisable,key,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="ArrActionLog" type="String">System.String</param>
+/// <param name="iXml" type="String">System.String</param>
+/// <param name="dcNo" type="String">System.String</param>
+/// <param name="isFillGrid" type="Boolean">System.Boolean</param>
+/// <param name="isDisable" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'CallLoadDcData',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,ArrActionLog:ArrActionLog,iXml:iXml,dcNo:dcNo,isFillGrid:isFillGrid,isDisable:isDisable,key:key},succeededCallback,failedCallback,userContext); },
+GetFillGridData:function(paramXml,fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,dcNo,fgName,transid,src,key,exprResult,succeededCallback, failedCallback, userContext) {
+/// <param name="paramXml" type="String">System.String</param>
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="dcNo" type="String">System.String</param>
+/// <param name="fgName" type="String">System.String</param>
+/// <param name="transid" type="String">System.String</param>
+/// <param name="src" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="exprResult" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetFillGridData',false,{paramXml:paramXml,fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,dcNo:dcNo,fgName:fgName,transid:transid,src:src,key:key,exprResult:exprResult},succeededCallback,failedCallback,userContext); },
+GetFastFillGridData:function(dcNo,fgName,transid,src,key,exprResult,succeededCallback, failedCallback, userContext) {
+/// <param name="dcNo" type="String">System.String</param>
+/// <param name="fgName" type="String">System.String</param>
+/// <param name="transid" type="String">System.String</param>
+/// <param name="src" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="exprResult" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetFastFillGridData',false,{dcNo:dcNo,fgName:fgName,transid:transid,src:src,key:key,exprResult:exprResult},succeededCallback,failedCallback,userContext); },
+ExecuteFormatFill:function(transid,frameNo,selection,key,succeededCallback, failedCallback, userContext) {
+/// <param name="transid" type="String">System.String</param>
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="selection" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'ExecuteFormatFill',false,{transid:transid,frameNo:frameNo,selection:selection,key:key},succeededCallback,failedCallback,userContext); },
+ExecuteAction:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,rid,transid,frameNo,s,selection,delRows,changedRows,key,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="ArrActionLog" type="String">System.String</param>
+/// <param name="rid" type="String">System.String</param>
+/// <param name="transid" type="String">System.String</param>
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="selection" type="String">System.String</param>
+/// <param name="delRows" type="String">System.String</param>
+/// <param name="changedRows" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'ExecuteAction',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,ArrActionLog:ArrActionLog,rid:rid,transid:transid,frameNo:frameNo,s:s,selection:selection,delRows:delRows,changedRows:changedRows,key:key},succeededCallback,failedCallback,userContext); },
+DoGetFillGrid:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,frameNo,fgName,s,key,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="fgName" type="String">System.String</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'DoGetFillGrid',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,frameNo:frameNo,fgName:fgName,s:s,key:key},succeededCallback,failedCallback,userContext); },
+DoGetFillGridNonMS:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,frameNo,fgName,key,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="fgName" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'DoGetFillGridNonMS',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,frameNo:frameNo,fgName:fgName,key:key},succeededCallback,failedCallback,userContext); },
+GetSubGridDropdown:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,frameNo,key,recordid,parRowNo,parDcNo,popRowNo,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="recordid" type="String">System.String</param>
+/// <param name="parRowNo" type="Number">System.Int32</param>
+/// <param name="parDcNo" type="String">System.String</param>
+/// <param name="popRowNo" type="Number">System.Int32</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetSubGridDropdown',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,frameNo:frameNo,key:key,recordid:recordid,parRowNo:parRowNo,parDcNo:parDcNo,popRowNo:popRowNo},succeededCallback,failedCallback,userContext); },
+RefreshDc:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,frameNo,key,recordid,includeDcs,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="recordid" type="String">System.String</param>
+/// <param name="includeDcs" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'RefreshDc',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,frameNo:frameNo,key:key,recordid:recordid,includeDcs:includeDcs},succeededCallback,failedCallback,userContext); },
+ProcessWFActionChanges:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,files,rid,inputXml,key,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="files" type="String">System.String</param>
+/// <param name="rid" type="String">System.String</param>
+/// <param name="inputXml" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'ProcessWFActionChanges',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,files:files,rid:rid,inputXml:inputXml,key:key},succeededCallback,failedCallback,userContext); },
+ProcessWFAction:function(s,succeededCallback, failedCallback, userContext) {
+/// <param name="s" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'ProcessWFAction',false,{s:s},succeededCallback,failedCallback,userContext); },
+GetDependParamsValues:function(s,IVkey,succeededCallback, failedCallback, userContext) {
+/// <param name="s" type="String">System.String</param>
+/// <param name="IVkey" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetDependParamsValues',false,{s:s,IVkey:IVkey},succeededCallback,failedCallback,userContext); },
+ClearCache:function(succeededCallback, failedCallback, userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'ClearCache',false,{},succeededCallback,failedCallback,userContext); },
+GetAddGroupsHtml:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,dcNo,transid,key,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="dcNo" type="String">System.String</param>
+/// <param name="transid" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetAddGroupsHtml',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,dcNo:dcNo,transid:transid,key:key},succeededCallback,failedCallback,userContext); },
+GetNewGroupsHtml:function(dcNo,transid,selectedGroups,lastRowNo,key,succeededCallback, failedCallback, userContext) {
+/// <param name="dcNo" type="Number">System.Int32</param>
+/// <param name="transid" type="String">System.String</param>
+/// <param name="selectedGroups" type="String">System.String</param>
+/// <param name="lastRowNo" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetNewGroupsHtml',false,{dcNo:dcNo,transid:transid,selectedGroups:selectedGroups,lastRowNo:lastRowNo,key:key},succeededCallback,failedCallback,userContext); },
+DeleteTstDataObj:function(key,succeededCallback, failedCallback, userContext) {
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'DeleteTstDataObj',false,{key:key},succeededCallback,failedCallback,userContext); },
+DeleteIviewDataObj:function(key,succeededCallback, failedCallback, userContext) {
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'DeleteIviewDataObj',false,{key:key},succeededCallback,failedCallback,userContext); },
+CreateFastReportDoc:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,tid,selectedDoc,rid,key,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="tid" type="String">System.String</param>
+/// <param name="selectedDoc" type="String">System.String</param>
+/// <param name="rid" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'CreateFastReportDoc',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,tid:tid,selectedDoc:selectedDoc,rid:rid,key:key},succeededCallback,failedCallback,userContext); },
+AddPrintDoc:function(tid,selectedDoc,rid,key,docType,succeededCallback, failedCallback, userContext) {
+/// <param name="tid" type="String">System.String</param>
+/// <param name="selectedDoc" type="String">System.String</param>
+/// <param name="rid" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="docType" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'AddPrintDoc',false,{tid:tid,selectedDoc:selectedDoc,rid:rid,key:key,docType:docType},succeededCallback,failedCallback,userContext); },
+GetPrintDocsHtml:function(succeededCallback, failedCallback, userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetPrintDocsHtml',false,{},succeededCallback,failedCallback,userContext); },
+RefreshPrintCount:function(succeededCallback, failedCallback, userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'RefreshPrintCount',false,{},succeededCallback,failedCallback,userContext); },
+RemoveDoc:function(fileName,succeededCallback, failedCallback, userContext) {
+/// <param name="fileName" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'RemoveDoc',false,{fileName:fileName},succeededCallback,failedCallback,userContext); },
+GetPrintDocs:function(tid,succeededCallback, failedCallback, userContext) {
+/// <param name="tid" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetPrintDocs',false,{tid:tid},succeededCallback,failedCallback,userContext); },
+UpdateDocStatus:function(succeededCallback, failedCallback, userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'UpdateDocStatus',false,{},succeededCallback,failedCallback,userContext); },
+UpdateTraceStatus:function(status,succeededCallback, failedCallback, userContext) {
+/// <param name="status" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'UpdateTraceStatus',false,{status:status},succeededCallback,failedCallback,userContext); },
+AppendRowToDataObj:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,key,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="ArrActionLog" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'AppendRowToDataObj',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,ArrActionLog:ArrActionLog,key:key},succeededCallback,failedCallback,userContext); },
+SaveAsDraft:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,transid,key,tabDCStatusStr,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="transid" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="tabDCStatusStr" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'SaveAsDraft',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,transid:transid,key:key,tabDCStatusStr:tabDCStatusStr},succeededCallback,failedCallback,userContext); },
+GetDraftsFromRedis:function(transid,caption,succeededCallback, failedCallback, userContext) {
+/// <param name="transid" type="String">System.String</param>
+/// <param name="caption" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetDraftsFromRedis',false,{transid:transid,caption:caption},succeededCallback,failedCallback,userContext); },
+DeleteDraft:function(draftId,succeededCallback, failedCallback, userContext) {
+/// <param name="draftId" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'DeleteDraft',false,{draftId:draftId},succeededCallback,failedCallback,userContext); },
+AddToDataCache:function(html,key,jsArrays,recId,succeededCallback, failedCallback, userContext) {
+/// <param name="html" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="jsArrays" type="String">System.String</param>
+/// <param name="recId" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'AddToDataCache',false,{html:html,key:key,jsArrays:jsArrays,recId:recId},succeededCallback,failedCallback,userContext); },
+RefreshField:function(frameNo,rowNo,fieldName,succeededCallback, failedCallback, userContext) {
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="rowNo" type="String">System.String</param>
+/// <param name="fieldName" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'RefreshField',false,{frameNo:frameNo,rowNo:rowNo,fieldName:fieldName},succeededCallback,failedCallback,userContext); },
+GetRecord:function(nxtprv,recordId,transactionId,columnName,dataRowIndex,isParentIview,succeededCallback, failedCallback, userContext) {
+/// <param name="nxtprv" type="String">System.String</param>
+/// <param name="recordId" type="String">System.String</param>
+/// <param name="transactionId" type="String">System.String</param>
+/// <param name="columnName" type="String">System.String</param>
+/// <param name="dataRowIndex" type="Number">System.Int32</param>
+/// <param name="isParentIview" type="Boolean">System.Boolean</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetRecord',false,{nxtprv:nxtprv,recordId:recordId,transactionId:transactionId,columnName:columnName,dataRowIndex:dataRowIndex,isParentIview:isParentIview},succeededCallback,failedCallback,userContext); },
+SessionHasValue:function(transactionId,dataRowIndex,columnName,isParentIview,succeededCallback, failedCallback, userContext) {
+/// <param name="transactionId" type="String">System.String</param>
+/// <param name="dataRowIndex" type="Number">System.Int32</param>
+/// <param name="columnName" type="String">System.String</param>
+/// <param name="isParentIview" type="Boolean">System.Boolean</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'SessionHasValue',false,{transactionId:transactionId,dataRowIndex:dataRowIndex,columnName:columnName,isParentIview:isParentIview},succeededCallback,failedCallback,userContext); },
+ClearNavigationSession:function(succeededCallback, failedCallback, userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'ClearNavigationSession',false,{},succeededCallback,failedCallback,userContext); },
+NavigateBackForwardButton:function(buttonName,succeededCallback, failedCallback, userContext) {
+/// <param name="buttonName" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'NavigateBackForwardButton',false,{buttonName:buttonName},succeededCallback,failedCallback,userContext); },
+CreateTimeLog:function(clientStartTime,clientTime1,clientTime2,asbTot,asbDb,serviceName,dataKey,succeededCallback, failedCallback, userContext) {
+/// <param name="clientStartTime" type="String">System.String</param>
+/// <param name="clientTime1" type="String">System.String</param>
+/// <param name="clientTime2" type="String">System.String</param>
+/// <param name="asbTot" type="String">System.String</param>
+/// <param name="asbDb" type="String">System.String</param>
+/// <param name="serviceName" type="String">System.String</param>
+/// <param name="dataKey" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'CreateTimeLog',false,{clientStartTime:clientStartTime,clientTime1:clientTime1,clientTime2:clientTime2,asbTot:asbTot,asbDb:asbDb,serviceName:serviceName,dataKey:dataKey},succeededCallback,failedCallback,userContext); },
+DeleteIviewCacheFiles:function(iName,succeededCallback, failedCallback, userContext) {
+/// <param name="iName" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'DeleteIviewCacheFiles',false,{iName:iName},succeededCallback,failedCallback,userContext); },
+UnlockTStructRecord:function(transId,recordId,unlockByAdmin,succeededCallback, failedCallback, userContext) {
+/// <param name="transId" type="String">System.String</param>
+/// <param name="recordId" type="String">System.String</param>
+/// <param name="unlockByAdmin" type="Boolean">System.Boolean</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'UnlockTStructRecord',false,{transId:transId,recordId:recordId,unlockByAdmin:unlockByAdmin},succeededCallback,failedCallback,userContext); },
+SignOut:function(succeededCallback, failedCallback, userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'SignOut',false,{},succeededCallback,failedCallback,userContext); },
+GetRecordId:function(transId,param,succeededCallback, failedCallback, userContext) {
+/// <param name="transId" type="String">System.String</param>
+/// <param name="param" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetRecordId',false,{transId:transId,param:param},succeededCallback,failedCallback,userContext); },
+SaveIntUser:function(name,org,email,mob,partner,succeededCallback, failedCallback, userContext) {
+/// <param name="name" type="String">System.String</param>
+/// <param name="org" type="String">System.String</param>
+/// <param name="email" type="String">System.String</param>
+/// <param name="mob" type="String">System.String</param>
+/// <param name="partner" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'SaveIntUser',false,{name:name,org:org,email:email,mob:mob,partner:partner},succeededCallback,failedCallback,userContext); },
+GetNextStagPage:function(key,tableNo,succeededCallback, failedCallback, userContext) {
+/// <param name="key" type="String">System.String</param>
+/// <param name="tableNo" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetNextStagPage',false,{key:key,tableNo:tableNo},succeededCallback,failedCallback,userContext); },
+GetAllPages:function(key,tableNo,succeededCallback, failedCallback, userContext) {
+/// <param name="key" type="String">System.String</param>
+/// <param name="tableNo" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetAllPages',false,{key:key,tableNo:tableNo},succeededCallback,failedCallback,userContext); },
+SetActionIvParams:function(url,paramStr,iviewName,succeededCallback, failedCallback, userContext) {
+/// <param name="url" type="String">System.String</param>
+/// <param name="paramStr" type="String">System.String</param>
+/// <param name="iviewName" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'SetActionIvParams',false,{url:url,paramStr:paramStr,iviewName:iviewName},succeededCallback,failedCallback,userContext); },
+SetExportParams:function(url,paramStr,iviewName,succeededCallback, failedCallback, userContext) {
+/// <param name="url" type="String">System.String</param>
+/// <param name="paramStr" type="String">System.String</param>
+/// <param name="iviewName" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'SetExportParams',false,{url:url,paramStr:paramStr,iviewName:iviewName},succeededCallback,failedCallback,userContext); },
+SetIviewNavigationData:function(paramStr,iviewName,succeededCallback, failedCallback, userContext) {
+/// <param name="paramStr" type="String">System.String</param>
+/// <param name="iviewName" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'SetIviewNavigationData',false,{paramStr:paramStr,iviewName:iviewName},succeededCallback,failedCallback,userContext); },
+GetAxpString:function(succeededCallback, failedCallback, userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetAxpString',false,{},succeededCallback,failedCallback,userContext); },
+GetParams:function(iViewname,succeededCallback, failedCallback, userContext) {
+/// <param name="iViewname" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetParams',false,{iViewname:iViewname},succeededCallback,failedCallback,userContext); },
+GetContactInfo:function(succeededCallback, failedCallback, userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetContactInfo',false,{},succeededCallback,failedCallback,userContext); },
+ComboFill:function(baseDataNode,succeededCallback, failedCallback, userContext) {
+/// <param name="baseDataNode" type="Array">System.Xml.XmlNode</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'ComboFill',false,{baseDataNode:baseDataNode},succeededCallback,failedCallback,userContext); },
+GetIviewRecordCount:function(IvName,Parameters,isListView,succeededCallback, failedCallback, userContext) {
+/// <param name="IvName" type="String">System.String</param>
+/// <param name="Parameters" type="String">System.String</param>
+/// <param name="isListView" type="Boolean">System.Boolean</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetIviewRecordCount',false,{IvName:IvName,Parameters:Parameters,isListView:isListView},succeededCallback,failedCallback,userContext); },
+GetNewsfeed:function(succeededCallback, failedCallback, userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetNewsfeed',false,{},succeededCallback,failedCallback,userContext); },
+GetLiveFeeds:function(succeededCallback, failedCallback, userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetLiveFeeds',false,{},succeededCallback,failedCallback,userContext); },
+GetFilePathForIviewAttachment:function(proj,tid,rowid,filename,succeededCallback, failedCallback, userContext) {
+/// <param name="proj" type="String">System.String</param>
+/// <param name="tid" type="String">System.String</param>
+/// <param name="rowid" type="String">System.String</param>
+/// <param name="filename" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetFilePathForIviewAttachment',false,{proj:proj,tid:tid,rowid:rowid,filename:filename},succeededCallback,failedCallback,userContext); },
+GetHelpText:function(tid,succeededCallback, failedCallback, userContext) {
+/// <param name="tid" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetHelpText',false,{tid:tid},succeededCallback,failedCallback,userContext); },
+GetZipPathForIviewAttachment:function(proj,tids,rowids,filenames,succeededCallback, failedCallback, userContext) {
+/// <param name="proj" type="Array">System.String[]</param>
+/// <param name="tids" type="Array">System.String[]</param>
+/// <param name="rowids" type="Array">System.String[]</param>
+/// <param name="filenames" type="Array">System.String[]</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetZipPathForIviewAttachment',false,{proj:proj,tids:tids,rowids:rowids,filenames:filenames},succeededCallback,failedCallback,userContext); },
+GetLanguage:function(proj,source,succeededCallback, failedCallback, userContext) {
+/// <param name="proj" type="String">System.String</param>
+/// <param name="source" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetLanguage',false,{proj:proj,source:source},succeededCallback,failedCallback,userContext); },
+GetRoles:function(succeededCallback, failedCallback, userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetRoles',false,{},succeededCallback,failedCallback,userContext); },
+GetChoices:function(tStrType,value,succeededCallback, failedCallback, userContext) {
+/// <param name="tStrType" type="String">System.String</param>
+/// <param name="value" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetChoices',false,{tStrType:tStrType,value:value},succeededCallback,failedCallback,userContext); },
+GetPrpLblStatus:function(succeededCallback, failedCallback, userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetPrpLblStatus',false,{},succeededCallback,failedCallback,userContext); },
+GetFastDepFlds:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,visibleDcs,str,tid,key,frameNo,rowNo,changeFieldName,subGridInfo,parentInfo,fieldName,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="ArrActionLog" type="String">System.String</param>
+/// <param name="visibleDcs" type="String">System.String</param>
+/// <param name="str" type="String">System.String</param>
+/// <param name="tid" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="rowNo" type="String">System.String</param>
+/// <param name="changeFieldName" type="String">System.String</param>
+/// <param name="subGridInfo" type="String">System.String</param>
+/// <param name="parentInfo" type="String">System.String</param>
+/// <param name="fieldName" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetFastDepFlds',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,ArrActionLog:ArrActionLog,visibleDcs:visibleDcs,str:str,tid:tid,key:key,frameNo:frameNo,rowNo:rowNo,changeFieldName:changeFieldName,subGridInfo:subGridInfo,parentInfo:parentInfo,fieldName:fieldName},succeededCallback,failedCallback,userContext); },
+SetSavedAndPublishedID:function(transId,designJSON,savedID,publishedID,ispublish,succeededCallback, failedCallback, userContext) {
+/// <param name="transId" type="String">System.String</param>
+/// <param name="designJSON" type="String">System.String</param>
+/// <param name="savedID" type="String">System.String</param>
+/// <param name="publishedID" type="String">System.String</param>
+/// <param name="ispublish" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'SetSavedAndPublishedID',false,{transId:transId,designJSON:designJSON,savedID:savedID,publishedID:publishedID,ispublish:ispublish},succeededCallback,failedCallback,userContext); },
+SetListViewDictionary:function(listviewRecords,viewRecordKey,transId,succeededCallback, failedCallback, userContext) {
+/// <param name="listviewRecords" type="Array">System.String[]</param>
+/// <param name="viewRecordKey" type="Number">System.Int32</param>
+/// <param name="transId" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'SetListViewDictionary',false,{listviewRecords:listviewRecords,viewRecordKey:viewRecordKey,transId:transId},succeededCallback,failedCallback,userContext); },
+GetListViewNext:function(transId,key,succeededCallback, failedCallback, userContext) {
+/// <param name="transId" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetListViewNext',false,{transId:transId,key:key},succeededCallback,failedCallback,userContext); },
+GetListViewPrev:function(transId,key,succeededCallback, failedCallback, userContext) {
+/// <param name="transId" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetListViewPrev',false,{transId:transId,key:key},succeededCallback,failedCallback,userContext); },
+FormAutoComplete:function(FldValue,fltValue,ddlLanguage,succeededCallback, failedCallback, userContext) {
+/// <param name="FldValue" type="String">System.String</param>
+/// <param name="fltValue" type="String">System.String</param>
+/// <param name="ddlLanguage" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'FormAutoComplete',false,{FldValue:FldValue,fltValue:fltValue,ddlLanguage:ddlLanguage},succeededCallback,failedCallback,userContext); },
+FileXml:function(ddlsource,ddlLanguage,succeededCallback, failedCallback, userContext) {
+/// <param name="ddlsource" type="String">System.String</param>
+/// <param name="ddlLanguage" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'FileXml',false,{ddlsource:ddlsource,ddlLanguage:ddlLanguage},succeededCallback,failedCallback,userContext); },
+SaveLanFileData:function(ddlSource,ddlLanguage,textvalue,succeededCallback, failedCallback, userContext) {
+/// <param name="ddlSource" type="String">System.String</param>
+/// <param name="ddlLanguage" type="String">System.String</param>
+/// <param name="textvalue" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'SaveLanFileData',false,{ddlSource:ddlSource,ddlLanguage:ddlLanguage,textvalue:textvalue},succeededCallback,failedCallback,userContext); },
+AddSessionPair:function(key,val,succeededCallback, failedCallback, userContext) {
+/// <param name="key" type="String">System.String</param>
+/// <param name="val" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'AddSessionPair',false,{key:key,val:val},succeededCallback,failedCallback,userContext); },
+CompareLastUpdated:function(succeededCallback, failedCallback, userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'CompareLastUpdated',false,{},succeededCallback,failedCallback,userContext); },
+GetSession:function(key,succeededCallback, failedCallback, userContext) {
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetSession',false,{key:key},succeededCallback,failedCallback,userContext); },
+SetSession:function(key,val,appendVal,delimiter,succeededCallback, failedCallback, userContext) {
+/// <param name="key" type="String">System.String</param>
+/// <param name="val" type="String">System.String</param>
+/// <param name="appendVal" type="Boolean">System.Boolean</param>
+/// <param name="delimiter" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'SetSession',false,{key:key,val:val,appendVal:appendVal,delimiter:delimiter},succeededCallback,failedCallback,userContext); },
+SetNodeApineeds:function(key,val,succeededCallback, failedCallback, userContext) {
+/// <param name="key" type="String">System.String</param>
+/// <param name="val" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'SetNodeApineeds',false,{key:key,val:val},succeededCallback,failedCallback,userContext); },
+GetNewTabPageSess:function(key,succeededCallback, failedCallback, userContext) {
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetNewTabPageSess',false,{key:key},succeededCallback,failedCallback,userContext); },
+CallRestWS:function(jsonData,webServiceName,succeededCallback, failedCallback, userContext) {
+/// <param name="jsonData" type="String">System.String</param>
+/// <param name="webServiceName" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'CallRestWS',false,{jsonData:jsonData,webServiceName:webServiceName},succeededCallback,failedCallback,userContext); },
+UnlockConfigApp:function(forceUnlock,succeededCallback, failedCallback, userContext) {
+/// <param name="forceUnlock" type="Boolean">System.Boolean</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'UnlockConfigApp',false,{forceUnlock:forceUnlock},succeededCallback,failedCallback,userContext); },
+GetAssociatedTstruct:function(key,succeededCallback, failedCallback, userContext) {
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetAssociatedTstruct',false,{key:key},succeededCallback,failedCallback,userContext); },
+RefreshMenu:function(succeededCallback, failedCallback, userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'RefreshMenu',false,{},succeededCallback,failedCallback,userContext); },
+CreateLoginKey:function(proj,userName,pwd,seed,language,guid,succeededCallback, failedCallback, userContext) {
+/// <param name="proj" type="String">System.String</param>
+/// <param name="userName" type="String">System.String</param>
+/// <param name="pwd" type="String">System.String</param>
+/// <param name="seed" type="String">System.String</param>
+/// <param name="language" type="String">System.String</param>
+/// <param name="guid" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'CreateLoginKey',false,{proj:proj,userName:userName,pwd:pwd,seed:seed,language:language,guid:guid},succeededCallback,failedCallback,userContext); },
+ResetFormLoadCache:function(transid,succeededCallback, failedCallback, userContext) {
+/// <param name="transid" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'ResetFormLoadCache',false,{transid:transid},succeededCallback,failedCallback,userContext); }}
+ASB.WebService.registerClass('ASB.WebService',Sys.Net.WebServiceProxy);
+ASB.WebService._staticInstance = new ASB.WebService();
+ASB.WebService.set_path = function(value) {
+ASB.WebService._staticInstance.set_path(value); }
+ASB.WebService.get_path = function() { 
+/// <value type="String" mayBeNull="true">The service url.</value>
+return ASB.WebService._staticInstance.get_path();}
+ASB.WebService.set_timeout = function(value) {
+ASB.WebService._staticInstance.set_timeout(value); }
+ASB.WebService.get_timeout = function() { 
+/// <value type="Number">The service timeout.</value>
+return ASB.WebService._staticInstance.get_timeout(); }
+ASB.WebService.set_defaultUserContext = function(value) { 
+ASB.WebService._staticInstance.set_defaultUserContext(value); }
+ASB.WebService.get_defaultUserContext = function() { 
+/// <value mayBeNull="true">The service default user context.</value>
+return ASB.WebService._staticInstance.get_defaultUserContext(); }
+ASB.WebService.set_defaultSucceededCallback = function(value) { 
+ ASB.WebService._staticInstance.set_defaultSucceededCallback(value); }
+ASB.WebService.get_defaultSucceededCallback = function() { 
+/// <value type="Function" mayBeNull="true">The service default succeeded callback.</value>
+return ASB.WebService._staticInstance.get_defaultSucceededCallback(); }
+ASB.WebService.set_defaultFailedCallback = function(value) { 
+ASB.WebService._staticInstance.set_defaultFailedCallback(value); }
+ASB.WebService.get_defaultFailedCallback = function() { 
+/// <value type="Function" mayBeNull="true">The service default failed callback.</value>
+return ASB.WebService._staticInstance.get_defaultFailedCallback(); }
+ASB.WebService.set_enableJsonp = function(value) { ASB.WebService._staticInstance.set_enableJsonp(value); }
+ASB.WebService.get_enableJsonp = function() { 
+/// <value type="Boolean">Specifies whether the service supports JSONP for cross domain calling.</value>
+return ASB.WebService._staticInstance.get_enableJsonp(); }
+ASB.WebService.set_jsonpCallbackParameter = function(value) { ASB.WebService._staticInstance.set_jsonpCallbackParameter(value); }
+ASB.WebService.get_jsonpCallbackParameter = function() { 
+/// <value type="String">Specifies the parameter name that contains the callback function name for a JSONP request.</value>
+return ASB.WebService._staticInstance.get_jsonpCallbackParameter(); }
+ASB.WebService.set_path("/WebService.asmx");
+ASB.WebService.UpdateTheme= function(theme,trace,onSuccess,onFailed,userContext) {
+/// <param name="theme" type="String">System.String</param>
+/// <param name="trace" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.UpdateTheme(theme,trace,onSuccess,onFailed,userContext); }
+ASB.WebService.SaveDataXML= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,files,rid,delRows,changedRows,key,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="files" type="String">System.String</param>
+/// <param name="rid" type="String">System.String</param>
+/// <param name="delRows" type="String">System.String</param>
+/// <param name="changedRows" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.SaveDataXML(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,files,rid,delRows,changedRows,key,onSuccess,onFailed,userContext); }
+ASB.WebService.RemoveNewFiles= function(f,sid,onSuccess,onFailed,userContext) {
+/// <param name="f" type="String">System.String</param>
+/// <param name="sid" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.RemoveNewFiles(f,sid,onSuccess,onFailed,userContext); }
+ASB.WebService.DeleteDataXML= function(rid,s,key,allowCancel,onSuccess,onFailed,userContext) {
+/// <param name="rid" type="String">System.String</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="allowCancel" type="Boolean">System.Boolean</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.DeleteDataXML(rid,s,key,allowCancel,onSuccess,onFailed,userContext); }
+ASB.WebService.DeleteRowWS= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,s,key,dcNo,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="ArrActionLog" type="String">System.String</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="dcNo" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.DeleteRowWS(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,s,key,dcNo,onSuccess,onFailed,userContext); }
+ASB.WebService.DeleteRowPerfWS= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,s,key,dcNo,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="ArrActionLog" type="String">System.String</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="dcNo" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.DeleteRowPerfWS(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,s,key,dcNo,onSuccess,onFailed,userContext); }
+ASB.WebService.AddRowWS= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,s,dcNo,key,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="dcNo" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.AddRowWS(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,s,dcNo,key,onSuccess,onFailed,userContext); }
+ASB.WebService.AddRowPerfWS= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,s,dcNo,key,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="dcNo" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.AddRowPerfWS(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,s,dcNo,key,onSuccess,onFailed,userContext); }
+ASB.WebService.CreatePDF= function(s,key,onSuccess,onFailed,userContext) {
+/// <param name="s" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.CreatePDF(s,key,onSuccess,onFailed,userContext); }
+ASB.WebService.CreateFastReportPDF= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,s,key,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.CreateFastReportPDF(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,s,key,onSuccess,onFailed,userContext); }
+ASB.WebService.CallActionWS= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,visibleDcs,s,f,source,delRows,changedRows,key,files,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="ArrActionLog" type="String">System.String</param>
+/// <param name="visibleDcs" type="String">System.String</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="f" type="String">System.String</param>
+/// <param name="source" type="String">System.String</param>
+/// <param name="delRows" type="String">System.String</param>
+/// <param name="changedRows" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="files" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.CallActionWS(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,visibleDcs,s,f,source,delRows,changedRows,key,files,onSuccess,onFailed,userContext); }
+ASB.WebService.ViewAttachment= function(s,key,onSuccess,onFailed,userContext) {
+/// <param name="s" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.ViewAttachment(s,key,onSuccess,onFailed,userContext); }
+ASB.WebService.RemoveAttachment= function(s,key,onSuccess,onFailed,userContext) {
+/// <param name="s" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.RemoveAttachment(s,key,onSuccess,onFailed,userContext); }
+ASB.WebService.DeleteIviewRow= function(recIds,transid,s,onSuccess,onFailed,userContext) {
+/// <param name="recIds" type="String">System.String</param>
+/// <param name="transid" type="String">System.String</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.DeleteIviewRow(recIds,transid,s,onSuccess,onFailed,userContext); }
+ASB.WebService.GetDepFlds= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,visibleDcs,s,tid,key,frameNo,rowNo,fieldName,subGridInfo,parentInfo,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="ArrActionLog" type="String">System.String</param>
+/// <param name="visibleDcs" type="String">System.String</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="tid" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="rowNo" type="String">System.String</param>
+/// <param name="fieldName" type="String">System.String</param>
+/// <param name="subGridInfo" type="String">System.String</param>
+/// <param name="parentInfo" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetDepFlds(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,visibleDcs,s,tid,key,frameNo,rowNo,fieldName,subGridInfo,parentInfo,onSuccess,onFailed,userContext); }
+ASB.WebService.GetDepFldsPerf= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,visibleDcs,s,tid,key,frameNo,rowNo,perfDepFldName,fieldName,subGridInfo,parentInfo,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="ArrActionLog" type="String">System.String</param>
+/// <param name="visibleDcs" type="String">System.String</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="tid" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="rowNo" type="String">System.String</param>
+/// <param name="perfDepFldName" type="String">System.String</param>
+/// <param name="fieldName" type="String">System.String</param>
+/// <param name="subGridInfo" type="String">System.String</param>
+/// <param name="parentInfo" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetDepFldsPerf(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,visibleDcs,s,tid,key,frameNo,rowNo,perfDepFldName,fieldName,subGridInfo,parentInfo,onSuccess,onFailed,userContext); }
+ASB.WebService.GetRapidDepFlds= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,visibleDcs,s,tid,key,frameNo,rowNo,fieldName,subGridInfo,parentInfo,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="ArrActionLog" type="String">System.String</param>
+/// <param name="visibleDcs" type="String">System.String</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="tid" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="rowNo" type="String">System.String</param>
+/// <param name="fieldName" type="String">System.String</param>
+/// <param name="subGridInfo" type="String">System.String</param>
+/// <param name="parentInfo" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetRapidDepFlds(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,visibleDcs,s,tid,key,frameNo,rowNo,fieldName,subGridInfo,parentInfo,onSuccess,onFailed,userContext); }
+ASB.WebService.GetSearchResult= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,fldName,fldValue,pageNo,pageSize,key,frameNo,activerow,parentInfo,subGridInfo,includeDcs,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldName" type="String">System.String</param>
+/// <param name="fldValue" type="String">System.String</param>
+/// <param name="pageNo" type="String">System.String</param>
+/// <param name="pageSize" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="activerow" type="String">System.String</param>
+/// <param name="parentInfo" type="String">System.String</param>
+/// <param name="subGridInfo" type="String">System.String</param>
+/// <param name="includeDcs" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetSearchResult(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,fldName,fldValue,pageNo,pageSize,key,frameNo,activerow,parentInfo,subGridInfo,includeDcs,onSuccess,onFailed,userContext); }
+ASB.WebService.CallLoadDcData= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,iXml,dcNo,isFillGrid,isDisable,key,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="ArrActionLog" type="String">System.String</param>
+/// <param name="iXml" type="String">System.String</param>
+/// <param name="dcNo" type="String">System.String</param>
+/// <param name="isFillGrid" type="Boolean">System.Boolean</param>
+/// <param name="isDisable" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.CallLoadDcData(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,iXml,dcNo,isFillGrid,isDisable,key,onSuccess,onFailed,userContext); }
+ASB.WebService.GetFillGridData= function(paramXml,fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,dcNo,fgName,transid,src,key,exprResult,onSuccess,onFailed,userContext) {
+/// <param name="paramXml" type="String">System.String</param>
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="dcNo" type="String">System.String</param>
+/// <param name="fgName" type="String">System.String</param>
+/// <param name="transid" type="String">System.String</param>
+/// <param name="src" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="exprResult" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetFillGridData(paramXml,fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,dcNo,fgName,transid,src,key,exprResult,onSuccess,onFailed,userContext); }
+ASB.WebService.GetFastFillGridData= function(dcNo,fgName,transid,src,key,exprResult,onSuccess,onFailed,userContext) {
+/// <param name="dcNo" type="String">System.String</param>
+/// <param name="fgName" type="String">System.String</param>
+/// <param name="transid" type="String">System.String</param>
+/// <param name="src" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="exprResult" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetFastFillGridData(dcNo,fgName,transid,src,key,exprResult,onSuccess,onFailed,userContext); }
+ASB.WebService.ExecuteFormatFill= function(transid,frameNo,selection,key,onSuccess,onFailed,userContext) {
+/// <param name="transid" type="String">System.String</param>
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="selection" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.ExecuteFormatFill(transid,frameNo,selection,key,onSuccess,onFailed,userContext); }
+ASB.WebService.ExecuteAction= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,rid,transid,frameNo,s,selection,delRows,changedRows,key,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="ArrActionLog" type="String">System.String</param>
+/// <param name="rid" type="String">System.String</param>
+/// <param name="transid" type="String">System.String</param>
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="selection" type="String">System.String</param>
+/// <param name="delRows" type="String">System.String</param>
+/// <param name="changedRows" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.ExecuteAction(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,rid,transid,frameNo,s,selection,delRows,changedRows,key,onSuccess,onFailed,userContext); }
+ASB.WebService.DoGetFillGrid= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,frameNo,fgName,s,key,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="fgName" type="String">System.String</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.DoGetFillGrid(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,frameNo,fgName,s,key,onSuccess,onFailed,userContext); }
+ASB.WebService.DoGetFillGridNonMS= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,frameNo,fgName,key,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="fgName" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.DoGetFillGridNonMS(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,frameNo,fgName,key,onSuccess,onFailed,userContext); }
+ASB.WebService.GetSubGridDropdown= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,frameNo,key,recordid,parRowNo,parDcNo,popRowNo,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="recordid" type="String">System.String</param>
+/// <param name="parRowNo" type="Number">System.Int32</param>
+/// <param name="parDcNo" type="String">System.String</param>
+/// <param name="popRowNo" type="Number">System.Int32</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetSubGridDropdown(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,frameNo,key,recordid,parRowNo,parDcNo,popRowNo,onSuccess,onFailed,userContext); }
+ASB.WebService.RefreshDc= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,frameNo,key,recordid,includeDcs,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="recordid" type="String">System.String</param>
+/// <param name="includeDcs" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.RefreshDc(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,frameNo,key,recordid,includeDcs,onSuccess,onFailed,userContext); }
+ASB.WebService.ProcessWFActionChanges= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,files,rid,inputXml,key,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="files" type="String">System.String</param>
+/// <param name="rid" type="String">System.String</param>
+/// <param name="inputXml" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.ProcessWFActionChanges(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,files,rid,inputXml,key,onSuccess,onFailed,userContext); }
+ASB.WebService.ProcessWFAction= function(s,onSuccess,onFailed,userContext) {
+/// <param name="s" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.ProcessWFAction(s,onSuccess,onFailed,userContext); }
+ASB.WebService.GetDependParamsValues= function(s,IVkey,onSuccess,onFailed,userContext) {
+/// <param name="s" type="String">System.String</param>
+/// <param name="IVkey" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetDependParamsValues(s,IVkey,onSuccess,onFailed,userContext); }
+ASB.WebService.ClearCache= function(onSuccess,onFailed,userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.ClearCache(onSuccess,onFailed,userContext); }
+ASB.WebService.GetAddGroupsHtml= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,dcNo,transid,key,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="dcNo" type="String">System.String</param>
+/// <param name="transid" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetAddGroupsHtml(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,dcNo,transid,key,onSuccess,onFailed,userContext); }
+ASB.WebService.GetNewGroupsHtml= function(dcNo,transid,selectedGroups,lastRowNo,key,onSuccess,onFailed,userContext) {
+/// <param name="dcNo" type="Number">System.Int32</param>
+/// <param name="transid" type="String">System.String</param>
+/// <param name="selectedGroups" type="String">System.String</param>
+/// <param name="lastRowNo" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetNewGroupsHtml(dcNo,transid,selectedGroups,lastRowNo,key,onSuccess,onFailed,userContext); }
+ASB.WebService.DeleteTstDataObj= function(key,onSuccess,onFailed,userContext) {
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.DeleteTstDataObj(key,onSuccess,onFailed,userContext); }
+ASB.WebService.DeleteIviewDataObj= function(key,onSuccess,onFailed,userContext) {
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.DeleteIviewDataObj(key,onSuccess,onFailed,userContext); }
+ASB.WebService.CreateFastReportDoc= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,tid,selectedDoc,rid,key,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="tid" type="String">System.String</param>
+/// <param name="selectedDoc" type="String">System.String</param>
+/// <param name="rid" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.CreateFastReportDoc(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,tid,selectedDoc,rid,key,onSuccess,onFailed,userContext); }
+ASB.WebService.AddPrintDoc= function(tid,selectedDoc,rid,key,docType,onSuccess,onFailed,userContext) {
+/// <param name="tid" type="String">System.String</param>
+/// <param name="selectedDoc" type="String">System.String</param>
+/// <param name="rid" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="docType" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.AddPrintDoc(tid,selectedDoc,rid,key,docType,onSuccess,onFailed,userContext); }
+ASB.WebService.GetPrintDocsHtml= function(onSuccess,onFailed,userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetPrintDocsHtml(onSuccess,onFailed,userContext); }
+ASB.WebService.RefreshPrintCount= function(onSuccess,onFailed,userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.RefreshPrintCount(onSuccess,onFailed,userContext); }
+ASB.WebService.RemoveDoc= function(fileName,onSuccess,onFailed,userContext) {
+/// <param name="fileName" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.RemoveDoc(fileName,onSuccess,onFailed,userContext); }
+ASB.WebService.GetPrintDocs= function(tid,onSuccess,onFailed,userContext) {
+/// <param name="tid" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetPrintDocs(tid,onSuccess,onFailed,userContext); }
+ASB.WebService.UpdateDocStatus= function(onSuccess,onFailed,userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.UpdateDocStatus(onSuccess,onFailed,userContext); }
+ASB.WebService.UpdateTraceStatus= function(status,onSuccess,onFailed,userContext) {
+/// <param name="status" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.UpdateTraceStatus(status,onSuccess,onFailed,userContext); }
+ASB.WebService.AppendRowToDataObj= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,key,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="ArrActionLog" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.AppendRowToDataObj(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,key,onSuccess,onFailed,userContext); }
+ASB.WebService.SaveAsDraft= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,transid,key,tabDCStatusStr,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="transid" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="tabDCStatusStr" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.SaveAsDraft(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,transid,key,tabDCStatusStr,onSuccess,onFailed,userContext); }
+ASB.WebService.GetDraftsFromRedis= function(transid,caption,onSuccess,onFailed,userContext) {
+/// <param name="transid" type="String">System.String</param>
+/// <param name="caption" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetDraftsFromRedis(transid,caption,onSuccess,onFailed,userContext); }
+ASB.WebService.DeleteDraft= function(draftId,onSuccess,onFailed,userContext) {
+/// <param name="draftId" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.DeleteDraft(draftId,onSuccess,onFailed,userContext); }
+ASB.WebService.AddToDataCache= function(html,key,jsArrays,recId,onSuccess,onFailed,userContext) {
+/// <param name="html" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="jsArrays" type="String">System.String</param>
+/// <param name="recId" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.AddToDataCache(html,key,jsArrays,recId,onSuccess,onFailed,userContext); }
+ASB.WebService.RefreshField= function(frameNo,rowNo,fieldName,onSuccess,onFailed,userContext) {
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="rowNo" type="String">System.String</param>
+/// <param name="fieldName" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.RefreshField(frameNo,rowNo,fieldName,onSuccess,onFailed,userContext); }
+ASB.WebService.GetRecord= function(nxtprv,recordId,transactionId,columnName,dataRowIndex,isParentIview,onSuccess,onFailed,userContext) {
+/// <param name="nxtprv" type="String">System.String</param>
+/// <param name="recordId" type="String">System.String</param>
+/// <param name="transactionId" type="String">System.String</param>
+/// <param name="columnName" type="String">System.String</param>
+/// <param name="dataRowIndex" type="Number">System.Int32</param>
+/// <param name="isParentIview" type="Boolean">System.Boolean</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetRecord(nxtprv,recordId,transactionId,columnName,dataRowIndex,isParentIview,onSuccess,onFailed,userContext); }
+ASB.WebService.SessionHasValue= function(transactionId,dataRowIndex,columnName,isParentIview,onSuccess,onFailed,userContext) {
+/// <param name="transactionId" type="String">System.String</param>
+/// <param name="dataRowIndex" type="Number">System.Int32</param>
+/// <param name="columnName" type="String">System.String</param>
+/// <param name="isParentIview" type="Boolean">System.Boolean</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.SessionHasValue(transactionId,dataRowIndex,columnName,isParentIview,onSuccess,onFailed,userContext); }
+ASB.WebService.ClearNavigationSession= function(onSuccess,onFailed,userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.ClearNavigationSession(onSuccess,onFailed,userContext); }
+ASB.WebService.NavigateBackForwardButton= function(buttonName,onSuccess,onFailed,userContext) {
+/// <param name="buttonName" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.NavigateBackForwardButton(buttonName,onSuccess,onFailed,userContext); }
+ASB.WebService.CreateTimeLog= function(clientStartTime,clientTime1,clientTime2,asbTot,asbDb,serviceName,dataKey,onSuccess,onFailed,userContext) {
+/// <param name="clientStartTime" type="String">System.String</param>
+/// <param name="clientTime1" type="String">System.String</param>
+/// <param name="clientTime2" type="String">System.String</param>
+/// <param name="asbTot" type="String">System.String</param>
+/// <param name="asbDb" type="String">System.String</param>
+/// <param name="serviceName" type="String">System.String</param>
+/// <param name="dataKey" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.CreateTimeLog(clientStartTime,clientTime1,clientTime2,asbTot,asbDb,serviceName,dataKey,onSuccess,onFailed,userContext); }
+ASB.WebService.DeleteIviewCacheFiles= function(iName,onSuccess,onFailed,userContext) {
+/// <param name="iName" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.DeleteIviewCacheFiles(iName,onSuccess,onFailed,userContext); }
+ASB.WebService.UnlockTStructRecord= function(transId,recordId,unlockByAdmin,onSuccess,onFailed,userContext) {
+/// <param name="transId" type="String">System.String</param>
+/// <param name="recordId" type="String">System.String</param>
+/// <param name="unlockByAdmin" type="Boolean">System.Boolean</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.UnlockTStructRecord(transId,recordId,unlockByAdmin,onSuccess,onFailed,userContext); }
+ASB.WebService.SignOut= function(onSuccess,onFailed,userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.SignOut(onSuccess,onFailed,userContext); }
+ASB.WebService.GetRecordId= function(transId,param,onSuccess,onFailed,userContext) {
+/// <param name="transId" type="String">System.String</param>
+/// <param name="param" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetRecordId(transId,param,onSuccess,onFailed,userContext); }
+ASB.WebService.SaveIntUser= function(name,org,email,mob,partner,onSuccess,onFailed,userContext) {
+/// <param name="name" type="String">System.String</param>
+/// <param name="org" type="String">System.String</param>
+/// <param name="email" type="String">System.String</param>
+/// <param name="mob" type="String">System.String</param>
+/// <param name="partner" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.SaveIntUser(name,org,email,mob,partner,onSuccess,onFailed,userContext); }
+ASB.WebService.GetNextStagPage= function(key,tableNo,onSuccess,onFailed,userContext) {
+/// <param name="key" type="String">System.String</param>
+/// <param name="tableNo" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetNextStagPage(key,tableNo,onSuccess,onFailed,userContext); }
+ASB.WebService.GetAllPages= function(key,tableNo,onSuccess,onFailed,userContext) {
+/// <param name="key" type="String">System.String</param>
+/// <param name="tableNo" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetAllPages(key,tableNo,onSuccess,onFailed,userContext); }
+ASB.WebService.SetActionIvParams= function(url,paramStr,iviewName,onSuccess,onFailed,userContext) {
+/// <param name="url" type="String">System.String</param>
+/// <param name="paramStr" type="String">System.String</param>
+/// <param name="iviewName" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.SetActionIvParams(url,paramStr,iviewName,onSuccess,onFailed,userContext); }
+ASB.WebService.SetExportParams= function(url,paramStr,iviewName,onSuccess,onFailed,userContext) {
+/// <param name="url" type="String">System.String</param>
+/// <param name="paramStr" type="String">System.String</param>
+/// <param name="iviewName" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.SetExportParams(url,paramStr,iviewName,onSuccess,onFailed,userContext); }
+ASB.WebService.SetIviewNavigationData= function(paramStr,iviewName,onSuccess,onFailed,userContext) {
+/// <param name="paramStr" type="String">System.String</param>
+/// <param name="iviewName" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.SetIviewNavigationData(paramStr,iviewName,onSuccess,onFailed,userContext); }
+ASB.WebService.GetAxpString= function(onSuccess,onFailed,userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetAxpString(onSuccess,onFailed,userContext); }
+ASB.WebService.GetParams= function(iViewname,onSuccess,onFailed,userContext) {
+/// <param name="iViewname" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetParams(iViewname,onSuccess,onFailed,userContext); }
+ASB.WebService.GetContactInfo= function(onSuccess,onFailed,userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetContactInfo(onSuccess,onFailed,userContext); }
+ASB.WebService.ComboFill= function(baseDataNode,onSuccess,onFailed,userContext) {
+/// <param name="baseDataNode" type="Array">System.Xml.XmlNode</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.ComboFill(baseDataNode,onSuccess,onFailed,userContext); }
+ASB.WebService.GetIviewRecordCount= function(IvName,Parameters,isListView,onSuccess,onFailed,userContext) {
+/// <param name="IvName" type="String">System.String</param>
+/// <param name="Parameters" type="String">System.String</param>
+/// <param name="isListView" type="Boolean">System.Boolean</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetIviewRecordCount(IvName,Parameters,isListView,onSuccess,onFailed,userContext); }
+ASB.WebService.GetNewsfeed= function(onSuccess,onFailed,userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetNewsfeed(onSuccess,onFailed,userContext); }
+ASB.WebService.GetLiveFeeds= function(onSuccess,onFailed,userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetLiveFeeds(onSuccess,onFailed,userContext); }
+ASB.WebService.GetFilePathForIviewAttachment= function(proj,tid,rowid,filename,onSuccess,onFailed,userContext) {
+/// <param name="proj" type="String">System.String</param>
+/// <param name="tid" type="String">System.String</param>
+/// <param name="rowid" type="String">System.String</param>
+/// <param name="filename" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetFilePathForIviewAttachment(proj,tid,rowid,filename,onSuccess,onFailed,userContext); }
+ASB.WebService.GetHelpText= function(tid,onSuccess,onFailed,userContext) {
+/// <param name="tid" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetHelpText(tid,onSuccess,onFailed,userContext); }
+ASB.WebService.GetZipPathForIviewAttachment= function(proj,tids,rowids,filenames,onSuccess,onFailed,userContext) {
+/// <param name="proj" type="Array">System.String[]</param>
+/// <param name="tids" type="Array">System.String[]</param>
+/// <param name="rowids" type="Array">System.String[]</param>
+/// <param name="filenames" type="Array">System.String[]</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetZipPathForIviewAttachment(proj,tids,rowids,filenames,onSuccess,onFailed,userContext); }
+ASB.WebService.GetLanguage= function(proj,source,onSuccess,onFailed,userContext) {
+/// <param name="proj" type="String">System.String</param>
+/// <param name="source" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetLanguage(proj,source,onSuccess,onFailed,userContext); }
+ASB.WebService.GetRoles= function(onSuccess,onFailed,userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetRoles(onSuccess,onFailed,userContext); }
+ASB.WebService.GetChoices= function(tStrType,value,onSuccess,onFailed,userContext) {
+/// <param name="tStrType" type="String">System.String</param>
+/// <param name="value" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetChoices(tStrType,value,onSuccess,onFailed,userContext); }
+ASB.WebService.GetPrpLblStatus= function(onSuccess,onFailed,userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetPrpLblStatus(onSuccess,onFailed,userContext); }
+ASB.WebService.GetFastDepFlds= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,visibleDcs,str,tid,key,frameNo,rowNo,changeFieldName,subGridInfo,parentInfo,fieldName,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="ArrActionLog" type="String">System.String</param>
+/// <param name="visibleDcs" type="String">System.String</param>
+/// <param name="str" type="String">System.String</param>
+/// <param name="tid" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="frameNo" type="String">System.String</param>
+/// <param name="rowNo" type="String">System.String</param>
+/// <param name="changeFieldName" type="String">System.String</param>
+/// <param name="subGridInfo" type="String">System.String</param>
+/// <param name="parentInfo" type="String">System.String</param>
+/// <param name="fieldName" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetFastDepFlds(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,ArrActionLog,visibleDcs,str,tid,key,frameNo,rowNo,changeFieldName,subGridInfo,parentInfo,fieldName,onSuccess,onFailed,userContext); }
+ASB.WebService.SetSavedAndPublishedID= function(transId,designJSON,savedID,publishedID,ispublish,onSuccess,onFailed,userContext) {
+/// <param name="transId" type="String">System.String</param>
+/// <param name="designJSON" type="String">System.String</param>
+/// <param name="savedID" type="String">System.String</param>
+/// <param name="publishedID" type="String">System.String</param>
+/// <param name="ispublish" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.SetSavedAndPublishedID(transId,designJSON,savedID,publishedID,ispublish,onSuccess,onFailed,userContext); }
+ASB.WebService.SetListViewDictionary= function(listviewRecords,viewRecordKey,transId,onSuccess,onFailed,userContext) {
+/// <param name="listviewRecords" type="Array">System.String[]</param>
+/// <param name="viewRecordKey" type="Number">System.Int32</param>
+/// <param name="transId" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.SetListViewDictionary(listviewRecords,viewRecordKey,transId,onSuccess,onFailed,userContext); }
+ASB.WebService.GetListViewNext= function(transId,key,onSuccess,onFailed,userContext) {
+/// <param name="transId" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetListViewNext(transId,key,onSuccess,onFailed,userContext); }
+ASB.WebService.GetListViewPrev= function(transId,key,onSuccess,onFailed,userContext) {
+/// <param name="transId" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetListViewPrev(transId,key,onSuccess,onFailed,userContext); }
+ASB.WebService.FormAutoComplete= function(FldValue,fltValue,ddlLanguage,onSuccess,onFailed,userContext) {
+/// <param name="FldValue" type="String">System.String</param>
+/// <param name="fltValue" type="String">System.String</param>
+/// <param name="ddlLanguage" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.FormAutoComplete(FldValue,fltValue,ddlLanguage,onSuccess,onFailed,userContext); }
+ASB.WebService.FileXml= function(ddlsource,ddlLanguage,onSuccess,onFailed,userContext) {
+/// <param name="ddlsource" type="String">System.String</param>
+/// <param name="ddlLanguage" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.FileXml(ddlsource,ddlLanguage,onSuccess,onFailed,userContext); }
+ASB.WebService.SaveLanFileData= function(ddlSource,ddlLanguage,textvalue,onSuccess,onFailed,userContext) {
+/// <param name="ddlSource" type="String">System.String</param>
+/// <param name="ddlLanguage" type="String">System.String</param>
+/// <param name="textvalue" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.SaveLanFileData(ddlSource,ddlLanguage,textvalue,onSuccess,onFailed,userContext); }
+ASB.WebService.AddSessionPair= function(key,val,onSuccess,onFailed,userContext) {
+/// <param name="key" type="String">System.String</param>
+/// <param name="val" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.AddSessionPair(key,val,onSuccess,onFailed,userContext); }
+ASB.WebService.CompareLastUpdated= function(onSuccess,onFailed,userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.CompareLastUpdated(onSuccess,onFailed,userContext); }
+ASB.WebService.GetSession= function(key,onSuccess,onFailed,userContext) {
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetSession(key,onSuccess,onFailed,userContext); }
+ASB.WebService.SetSession= function(key,val,appendVal,delimiter,onSuccess,onFailed,userContext) {
+/// <param name="key" type="String">System.String</param>
+/// <param name="val" type="String">System.String</param>
+/// <param name="appendVal" type="Boolean">System.Boolean</param>
+/// <param name="delimiter" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.SetSession(key,val,appendVal,delimiter,onSuccess,onFailed,userContext); }
+ASB.WebService.SetNodeApineeds= function(key,val,onSuccess,onFailed,userContext) {
+/// <param name="key" type="String">System.String</param>
+/// <param name="val" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.SetNodeApineeds(key,val,onSuccess,onFailed,userContext); }
+ASB.WebService.GetNewTabPageSess= function(key,onSuccess,onFailed,userContext) {
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetNewTabPageSess(key,onSuccess,onFailed,userContext); }
+ASB.WebService.CallRestWS= function(jsonData,webServiceName,onSuccess,onFailed,userContext) {
+/// <param name="jsonData" type="String">System.String</param>
+/// <param name="webServiceName" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.CallRestWS(jsonData,webServiceName,onSuccess,onFailed,userContext); }
+ASB.WebService.UnlockConfigApp= function(forceUnlock,onSuccess,onFailed,userContext) {
+/// <param name="forceUnlock" type="Boolean">System.Boolean</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.UnlockConfigApp(forceUnlock,onSuccess,onFailed,userContext); }
+ASB.WebService.GetAssociatedTstruct= function(key,onSuccess,onFailed,userContext) {
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.GetAssociatedTstruct(key,onSuccess,onFailed,userContext); }
+ASB.WebService.RefreshMenu= function(onSuccess,onFailed,userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.RefreshMenu(onSuccess,onFailed,userContext); }
+ASB.WebService.CreateLoginKey= function(proj,userName,pwd,seed,language,guid,onSuccess,onFailed,userContext) {
+/// <param name="proj" type="String">System.String</param>
+/// <param name="userName" type="String">System.String</param>
+/// <param name="pwd" type="String">System.String</param>
+/// <param name="seed" type="String">System.String</param>
+/// <param name="language" type="String">System.String</param>
+/// <param name="guid" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.CreateLoginKey(proj,userName,pwd,seed,language,guid,onSuccess,onFailed,userContext); }
+ASB.WebService.ResetFormLoadCache= function(transid,onSuccess,onFailed,userContext) {
+/// <param name="transid" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASB.WebService._staticInstance.ResetFormLoadCache(transid,onSuccess,onFailed,userContext); }

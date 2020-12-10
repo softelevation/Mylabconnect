@@ -1,0 +1,227 @@
+Type.registerNamespace('ASBCustom');
+ASBCustom.CustomWebservice=function() {
+ASBCustom.CustomWebservice.initializeBase(this);
+this._timeout = 0;
+this._userContext = null;
+this._succeeded = null;
+this._failed = null;
+}
+ASBCustom.CustomWebservice.prototype={
+_get_path:function() {
+ var p = this.get_path();
+ if (p) return p;
+ else return ASBCustom.CustomWebservice._staticInstance.get_path();},
+CustomFunction:function(succeededCallback, failedCallback, userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'CustomFunction',false,{},succeededCallback,failedCallback,userContext); },
+SetIvparams:function(param,succeededCallback, failedCallback, userContext) {
+/// <param name="param" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'SetIvparams',false,{param:param},succeededCallback,failedCallback,userContext); },
+GetChoices:function(transid,sqlQuery,succeededCallback, failedCallback, userContext) {
+/// <param name="transid" type="String">System.String</param>
+/// <param name="sqlQuery" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetChoices',false,{transid:transid,sqlQuery:sqlQuery},succeededCallback,failedCallback,userContext); },
+SaveSupportChat:function(ticketNo,myRep,chatStatus,ticketType,chatMessage,succeededCallback, failedCallback, userContext) {
+/// <param name="ticketNo" type="String">System.String</param>
+/// <param name="myRep" type="String">System.String</param>
+/// <param name="chatStatus" type="String">System.String</param>
+/// <param name="ticketType" type="String">System.String</param>
+/// <param name="chatMessage" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'SaveSupportChat',false,{ticketNo:ticketNo,myRep:myRep,chatStatus:chatStatus,ticketType:ticketType,chatMessage:chatMessage},succeededCallback,failedCallback,userContext); },
+TrackShipment:function(ticketNo,isFedex,succeededCallback, failedCallback, userContext) {
+/// <param name="ticketNo" type="String">System.String</param>
+/// <param name="isFedex" type="Boolean">System.Boolean</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'TrackShipment',false,{ticketNo:ticketNo,isFedex:isFedex},succeededCallback,failedCallback,userContext); },
+UpdateDbTrackingDetails:function(trackingNumber,dbStatus,readMessage,succeededCallback, failedCallback, userContext) {
+/// <param name="trackingNumber" type="String">System.String</param>
+/// <param name="dbStatus" type="Number">System.Int32</param>
+/// <param name="readMessage" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'UpdateDbTrackingDetails',false,{trackingNumber:trackingNumber,dbStatus:dbStatus,readMessage:readMessage},succeededCallback,failedCallback,userContext); },
+CreateFastReportPDF:function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,s,key,succeededCallback, failedCallback, userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'CreateFastReportPDF',false,{fldArray:fldArray,fldDbRowNo:fldDbRowNo,fldValueArray:fldValueArray,fldDeletedArray:fldDeletedArray,s:s,key:key},succeededCallback,failedCallback,userContext); },
+HelloWorld:function(succeededCallback, failedCallback, userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'HelloWorld',false,{},succeededCallback,failedCallback,userContext); },
+CallGetChoice:function(succeededCallback, failedCallback, userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'CallGetChoice',false,{},succeededCallback,failedCallback,userContext); },
+GetNotificationCount:function(succeededCallback, failedCallback, userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GetNotificationCount',false,{},succeededCallback,failedCallback,userContext); },
+GUpdateNotificationFlag:function(succeededCallback, failedCallback, userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'GUpdateNotificationFlag',false,{},succeededCallback,failedCallback,userContext); },
+SaveFilesToTemp:function(succeededCallback, failedCallback, userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'SaveFilesToTemp',false,{},succeededCallback,failedCallback,userContext); },
+UploadDocumentsForMyCaseDetails:function(succeededCallback, failedCallback, userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'UploadDocumentsForMyCaseDetails',false,{},succeededCallback,failedCallback,userContext); },
+PrintRXForm:function(succeededCallback, failedCallback, userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+return this._invoke(this._get_path(), 'PrintRXForm',false,{},succeededCallback,failedCallback,userContext); }}
+ASBCustom.CustomWebservice.registerClass('ASBCustom.CustomWebservice',Sys.Net.WebServiceProxy);
+ASBCustom.CustomWebservice._staticInstance = new ASBCustom.CustomWebservice();
+ASBCustom.CustomWebservice.set_path = function(value) {
+ASBCustom.CustomWebservice._staticInstance.set_path(value); }
+ASBCustom.CustomWebservice.get_path = function() { 
+/// <value type="String" mayBeNull="true">The service url.</value>
+return ASBCustom.CustomWebservice._staticInstance.get_path();}
+ASBCustom.CustomWebservice.set_timeout = function(value) {
+ASBCustom.CustomWebservice._staticInstance.set_timeout(value); }
+ASBCustom.CustomWebservice.get_timeout = function() { 
+/// <value type="Number">The service timeout.</value>
+return ASBCustom.CustomWebservice._staticInstance.get_timeout(); }
+ASBCustom.CustomWebservice.set_defaultUserContext = function(value) { 
+ASBCustom.CustomWebservice._staticInstance.set_defaultUserContext(value); }
+ASBCustom.CustomWebservice.get_defaultUserContext = function() { 
+/// <value mayBeNull="true">The service default user context.</value>
+return ASBCustom.CustomWebservice._staticInstance.get_defaultUserContext(); }
+ASBCustom.CustomWebservice.set_defaultSucceededCallback = function(value) { 
+ ASBCustom.CustomWebservice._staticInstance.set_defaultSucceededCallback(value); }
+ASBCustom.CustomWebservice.get_defaultSucceededCallback = function() { 
+/// <value type="Function" mayBeNull="true">The service default succeeded callback.</value>
+return ASBCustom.CustomWebservice._staticInstance.get_defaultSucceededCallback(); }
+ASBCustom.CustomWebservice.set_defaultFailedCallback = function(value) { 
+ASBCustom.CustomWebservice._staticInstance.set_defaultFailedCallback(value); }
+ASBCustom.CustomWebservice.get_defaultFailedCallback = function() { 
+/// <value type="Function" mayBeNull="true">The service default failed callback.</value>
+return ASBCustom.CustomWebservice._staticInstance.get_defaultFailedCallback(); }
+ASBCustom.CustomWebservice.set_enableJsonp = function(value) { ASBCustom.CustomWebservice._staticInstance.set_enableJsonp(value); }
+ASBCustom.CustomWebservice.get_enableJsonp = function() { 
+/// <value type="Boolean">Specifies whether the service supports JSONP for cross domain calling.</value>
+return ASBCustom.CustomWebservice._staticInstance.get_enableJsonp(); }
+ASBCustom.CustomWebservice.set_jsonpCallbackParameter = function(value) { ASBCustom.CustomWebservice._staticInstance.set_jsonpCallbackParameter(value); }
+ASBCustom.CustomWebservice.get_jsonpCallbackParameter = function() { 
+/// <value type="String">Specifies the parameter name that contains the callback function name for a JSONP request.</value>
+return ASBCustom.CustomWebservice._staticInstance.get_jsonpCallbackParameter(); }
+ASBCustom.CustomWebservice.set_path("/CustomWebService.asmx");
+ASBCustom.CustomWebservice.CustomFunction= function(onSuccess,onFailed,userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASBCustom.CustomWebservice._staticInstance.CustomFunction(onSuccess,onFailed,userContext); }
+ASBCustom.CustomWebservice.SetIvparams= function(param,onSuccess,onFailed,userContext) {
+/// <param name="param" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASBCustom.CustomWebservice._staticInstance.SetIvparams(param,onSuccess,onFailed,userContext); }
+ASBCustom.CustomWebservice.GetChoices= function(transid,sqlQuery,onSuccess,onFailed,userContext) {
+/// <param name="transid" type="String">System.String</param>
+/// <param name="sqlQuery" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASBCustom.CustomWebservice._staticInstance.GetChoices(transid,sqlQuery,onSuccess,onFailed,userContext); }
+ASBCustom.CustomWebservice.SaveSupportChat= function(ticketNo,myRep,chatStatus,ticketType,chatMessage,onSuccess,onFailed,userContext) {
+/// <param name="ticketNo" type="String">System.String</param>
+/// <param name="myRep" type="String">System.String</param>
+/// <param name="chatStatus" type="String">System.String</param>
+/// <param name="ticketType" type="String">System.String</param>
+/// <param name="chatMessage" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASBCustom.CustomWebservice._staticInstance.SaveSupportChat(ticketNo,myRep,chatStatus,ticketType,chatMessage,onSuccess,onFailed,userContext); }
+ASBCustom.CustomWebservice.TrackShipment= function(ticketNo,isFedex,onSuccess,onFailed,userContext) {
+/// <param name="ticketNo" type="String">System.String</param>
+/// <param name="isFedex" type="Boolean">System.Boolean</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASBCustom.CustomWebservice._staticInstance.TrackShipment(ticketNo,isFedex,onSuccess,onFailed,userContext); }
+ASBCustom.CustomWebservice.UpdateDbTrackingDetails= function(trackingNumber,dbStatus,readMessage,onSuccess,onFailed,userContext) {
+/// <param name="trackingNumber" type="String">System.String</param>
+/// <param name="dbStatus" type="Number">System.Int32</param>
+/// <param name="readMessage" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASBCustom.CustomWebservice._staticInstance.UpdateDbTrackingDetails(trackingNumber,dbStatus,readMessage,onSuccess,onFailed,userContext); }
+ASBCustom.CustomWebservice.CreateFastReportPDF= function(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,s,key,onSuccess,onFailed,userContext) {
+/// <param name="fldArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDbRowNo" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldValueArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="fldDeletedArray" type="Array">System.Collections.ArrayList</param>
+/// <param name="s" type="String">System.String</param>
+/// <param name="key" type="String">System.String</param>
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASBCustom.CustomWebservice._staticInstance.CreateFastReportPDF(fldArray,fldDbRowNo,fldValueArray,fldDeletedArray,s,key,onSuccess,onFailed,userContext); }
+ASBCustom.CustomWebservice.HelloWorld= function(onSuccess,onFailed,userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASBCustom.CustomWebservice._staticInstance.HelloWorld(onSuccess,onFailed,userContext); }
+ASBCustom.CustomWebservice.CallGetChoice= function(onSuccess,onFailed,userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASBCustom.CustomWebservice._staticInstance.CallGetChoice(onSuccess,onFailed,userContext); }
+ASBCustom.CustomWebservice.GetNotificationCount= function(onSuccess,onFailed,userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASBCustom.CustomWebservice._staticInstance.GetNotificationCount(onSuccess,onFailed,userContext); }
+ASBCustom.CustomWebservice.GUpdateNotificationFlag= function(onSuccess,onFailed,userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASBCustom.CustomWebservice._staticInstance.GUpdateNotificationFlag(onSuccess,onFailed,userContext); }
+ASBCustom.CustomWebservice.SaveFilesToTemp= function(onSuccess,onFailed,userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASBCustom.CustomWebservice._staticInstance.SaveFilesToTemp(onSuccess,onFailed,userContext); }
+ASBCustom.CustomWebservice.UploadDocumentsForMyCaseDetails= function(onSuccess,onFailed,userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASBCustom.CustomWebservice._staticInstance.UploadDocumentsForMyCaseDetails(onSuccess,onFailed,userContext); }
+ASBCustom.CustomWebservice.PrintRXForm= function(onSuccess,onFailed,userContext) {
+/// <param name="succeededCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="failedCallback" type="Function" optional="true" mayBeNull="true"></param>
+/// <param name="userContext" optional="true" mayBeNull="true"></param>
+ASBCustom.CustomWebservice._staticInstance.PrintRXForm(onSuccess,onFailed,userContext); }

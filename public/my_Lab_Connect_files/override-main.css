@@ -1,0 +1,208 @@
+.logo-main a .titlename {
+    overflow: visible !important;
+}
+
+/*.sidebar-collapse .refresh, .sidebar-collapse .refreshMenu {
+    padding: 0 35%;
+}*/
+
+.header-list {
+    padding: 3px 0 0 5px !important;
+    margin: 0 0 0 7px !important;
+    width: 94% !important;
+}
+
+.panel-left-inner {
+    width: 100%;
+    margin: 0 auto;
+}
+
+    .panel-left-inner iframe {
+        width: 100%;
+    }
+
+
+#menuCollapse {
+    cursor: hand;
+}
+
+/* Menu Collapse Start */
+
+@media screen and (max-width: 1366px) and (min-width: 1100px), (min-width: 900px), (min-width: 1024px) {
+    .slideMenu {
+        width: 0% !important;
+        text-indent: -9999px !important;
+    }
+
+    .content-wrapper-marginleft0 {
+        margin-left: 0 !important;
+    }
+
+    .logo-main a {
+        width: 263px;
+    }
+
+    .main-sidebar {
+                top: 69px !important;
+    }
+
+    .box-block img {
+        padding: 17px 0;
+        max-width: 60% !important; /* Jai Work */
+        height: 50px !important; /* Jai Work */
+    }
+}
+
+/* Menu Collapse End */
+
+/* Jai Start Here 16-11-2019 */
+
+/* @media (max-width: 800px) and (min-width: 768px) { */
+
+@media (max-width: 800px) {
+    .logo-main .brand {
+        width: 180px !important;
+    }
+
+    .sidebar-mini.sidebar-collapse .content-wrapper, .sidebar-mini.sidebar-collapse .main-footer, .sidebar-mini.sidebar-collapse .right-side {
+        margin-left: 0;
+    }
+
+    .sidebar-mini.sidebar-collapse .main-sidebar {
+        width: 0%;
+        text-indent: -9999px;
+        z-index: 850;
+        top: 93px !important;
+    }
+
+    .sidebar-collapse .refresh, .sidebar-collapse .refreshMenu {
+        padding: 0 0;
+    }
+
+    .header-list {
+        padding: 3px 0 0 5px !important;
+        margin: 0 0 0 7px !important;
+        width: 94% !important;
+    }
+
+    mini.sidebar-collapse .content-wrapper, .sidebar-mini.sidebar-collapse .main-footer, .sidebar-mini.sidebar-collapse .right-side {
+        margin-left: 0;
+    }
+    .col-xs-8 {
+        width: 30%;
+    }
+
+    /*  @media (min-width: 768px)*/
+    .sidebar-mini.sidebar-collapse .main-sidebar {
+        width:0% !important;
+    }
+    }
+.displayNone {
+        display:none !important;
+        visibility:hidden !important;
+}
+/* @media screen and (max-width: 640px) and (max-width: 600px) and (max-width: 580px) { */
+
+    @media (max-width: 640px) {
+
+       
+
+            .slideMenudisplay {
+                display: block !important;
+            }
+
+            .sidebar-mini.sidebar-collapse .main-sidebar {
+                width: 0% !important;
+                text-indent: -9999px !important;
+                z-index: 850;
+            }
+
+            .dvheightframe {
+                top: auto !important;
+            }
+
+            .navbar {
+                min-height: auto !important;
+                height: auto !important;
+            }
+
+            .content-wrapper-marginleft0 {
+                margin-left: 0 !important;
+            }
+
+            .header-list {
+                padding: 3px 0 0 0 !important;
+                margin: 0 0 0 0 !important;
+                width: 94% !important;
+            }
+
+            .refreshMenu {
+                float: right;
+            }
+
+            .main-sidebar {
+                top: -30px !important;
+            }
+
+            .hisItem {
+                padding-right: 4px;
+            }
+
+            #ivirMainDataTableWrapper table.cards tbody td {
+                padding-bottom: 15px;
+            }
+
+           
+
+        .iviewTableWrapper {
+            width: 96%;
+            margin: 0 auto;
+        }
+
+        #ivInSearch {
+            top: 50px;
+            right: 0px;
+        }
+        /* Jai 01/12/2019 start */
+            .grid-stack.grid-stack-one-column-mode > .grid-stack-item {
+                width:99% !important;
+            }
+           .logout-main {
+                right: 10px !important;
+                top: 22px !important; 
+            }
+           .hotbtn, .coldbtn{
+               width:85px !important;
+           }
+
+    
+       /* Jai 01/12/2019 end */
+ }
+
+    @media(max-width: 540px) {
+        
+    }
+
+
+    @media(max-width: 480px) {
+    }
+
+    @media (max-width: 414px) {
+    }
+
+    @media (max-width: 411px) {
+    }
+
+    @media(max-width: 400px) {
+    }
+
+    @media (max-width: 375px) {
+    }
+
+    @media (max-width: 360px) {
+    }
+
+
+    @media (max-width: 320px) {
+    }
+    /* Jai End here 16-11-2019*/
