@@ -26,6 +26,17 @@
         </a>
       </li>
       <!-- Doctor -->
+	  
+	  <li class="menu-item">
+        <a href="#" class="has-chevron" data-toggle="collapse" data-target="#patient" aria-expanded="false" aria-controls="patient">
+          <span><i class="fas fa-user"></i>Doctors</span>
+        </a>
+        <ul id="patient" class="collapse" aria-labelledby="patient" data-parent="#side-nav-accordion">
+          <li> <a href="add-doctor">Add doctor</a> </li>
+          <li> <a href="doctors">Doctors</a> </li>
+        </ul>
+      </li>
+	  
       <!-- Patient -->
       <li class="menu-item">
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#patient" aria-expanded="false" aria-controls="patient">

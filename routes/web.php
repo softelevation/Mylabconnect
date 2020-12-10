@@ -25,3 +25,7 @@ Route::get('/table', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('/add-doctor', 'AdminController@addDoctor');
+Route::post('/add-doctor', 'AdminController@addDoctorPost');
+Route::get('/doctors', 'AdminController@doctors');
