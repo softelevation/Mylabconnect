@@ -22,10 +22,27 @@ Route::get('/form', function () {
 Route::get('/table', function () {
     return view('table');
 });
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+// Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    // return view('dashboard');
+// })->name('dashboard');
 
-Route::get('/add-doctor', 'AdminController@addDoctor');
-Route::post('/add-doctor', 'AdminController@addDoctorPost');
-Route::get('/doctors', 'AdminController@doctors');
+
+// Route::group(['prefix'=>'operator'], function () {
+	
+
+// 
+
+Route::group(['middleware'=>['auth:sanctum']], function () {
+	Route::get('/dashboard', function() {
+		return view('dashboard');
+	})->name('dashboard');
+	
+	Route::get('/add-user', 'AdminController@addDoctor');
+	Route::post('/add-user', 'AdminController@addDoctorPost');
+	Route::get('/users', 'AdminController@doctors');
+	Route::get('/support-ticket', 'AdminController@supportTicket');
+	Route::get('/add-ticket', 'AdminController@addTicket');
+	Route::post('/add-ticket', 'AdminController@addTicketPost');
+});	
+	
+	

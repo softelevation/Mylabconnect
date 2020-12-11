@@ -21,6 +21,7 @@
   <!-- medjestic styles -->
   <link href="assets/css/style.css" rel="stylesheet">
   <!-- Page Specific CSS (Morris Charts.css) -->
+  <link href="css/toaster.css" rel="stylesheet">
   <link href="assets/css/morris.css" rel="stylesheet">
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.ico">

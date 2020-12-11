@@ -5,7 +5,7 @@
   <aside id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left">
     <!-- Logo -->
     <div class="logo-sn ms-d-block-lg">
-      <a class="pl-0 ml-0 text-center" href="index.html"> <img src="my_Lab_Connect_files/logo-login.png" alt="logo"> </a>
+      <a class="pl-0 ml-0 text-center" href="dashboard"> <img src="my_Lab_Connect_files/logo-login.png" alt="logo"> </a>
 	  <a href="#" class="text-center ms-logo-img-link"> <img src="logo.png" alt="logo" width="40px"></a>
       <h5 class="text-center text-white mt-2"> Test Heartland Account</h5>
       <h6 class="text-center text-white mb-3">appsupport@leixir.com</h6>
@@ -14,7 +14,7 @@
     <ul class="accordion ms-main-aside fs-14" id="side-nav-accordion">
       <!-- Dashboard -->
       <li class="menu-item">
-        <a href="pages/animation.html">
+        <a href="dashboard">
           <span><i class="material-icons fs-16"></i>Home</span>
         </a>
       </li>
@@ -29,11 +29,11 @@
 	  
 	  <li class="menu-item">
         <a href="#" class="has-chevron" data-toggle="collapse" data-target="#patient" aria-expanded="false" aria-controls="patient">
-          <span><i class="fas fa-user"></i>Doctors</span>
+          <span><i class="fas fa-user"></i>Users</span>
         </a>
         <ul id="patient" class="collapse" aria-labelledby="patient" data-parent="#side-nav-accordion">
-          <li> <a href="add-doctor">Add doctor</a> </li>
-          <li> <a href="doctors">Doctors</a> </li>
+          <li> <a href="add-user">Add user</a> </li>
+          <li> <a href="users">Users</a> </li>
         </ul>
       </li>
 	  
@@ -65,6 +65,7 @@
           <span><i class="fas fa-list-alt"></i>Communication</span>
         </a>
         <ul id="schedule" class="collapse" aria-labelledby="schedule" data-parent="#side-nav-accordion">
+          <li> <a href="support-ticket">Support ticket</a> </li>
           <li> <a href="pages/doctor-schedule/add-schedule.html">Communication</a> </li>
           <li> <a href="pages/doctor-schedule/schedule-list.html">Communication</a> </li>
         </ul>

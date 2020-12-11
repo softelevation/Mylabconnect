@@ -7,26 +7,29 @@
         <div class="col-xl-12 col-md-12">
           <div class="ms-panel">
             <div class="ms-panel-header">
-              <h6>All users</h6>
+              <h6 class="float-left">Support ticket</h6>
+			  <a class="float-right button" href="add-ticket">Add ticket</a>
             </div>
             <div class="ms-panel-body">
               <div class="table-responsive">
                 <table class="table table-hover thead-primary">
                   <thead>
                     <tr>
+                      <th scope="col">Lab</th>
+                      <th scope="col">Ticket id</th>
                       <th scope="col">Name</th>
-                      <th scope="col">Email</th>
-                      <th scope="col">Type</th>
-                      <th scope="col">Address</th>
+                      <th scope="col">Support type</th>
+                      <th scope="col">Case no</th>
                     </tr>
                   </thead>
                   <tbody>
-					@foreach($doctors as $doctor)
-                    <tr>
-                      <td class="ms-table-f-w">{{$doctor->name}}</td>
-                      <td>{{$doctor->email}}</td>
-                      <td><?php if($doctor->roll_id == 1) { echo 'Admin'; } else if($doctor->roll_id == 2) { echo 'Lab admin'; } else if($doctor->roll_id == 3) { echo 'Doctor'; }else{ echo 'DSO'; } ?></td>
-                      <td>{{$doctor->address}}</td>
+					@foreach($tickets as $ticket)
+					<tr>
+                      <td>{{$ticket->lab}}</td>
+                      <td>{{$ticket->ticket_id}}</td>
+                      <td>{{$ticket->name}}</td>
+                      <td>{{$ticket->support_type}}</td>
+                      <td>{{$ticket->case_no}}</td>
                     </tr>
 					@endforeach
                   </tbody>

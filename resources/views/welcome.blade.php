@@ -31,7 +31,7 @@
 
 <div class="outerloginForm w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg d-flex justify-content-between align-items-center">
 	<div class="login-img-art w-100">
-		<img src="login.png" alt="logo">
+		<img src="my_Lab_Connect_files/logo-login.png" alt="logo">
 	</div>
 
 	<form class="w-100" method="POST" action="{{ route('login') }}">
