@@ -65,7 +65,7 @@
                     <div class="col-md-4 mb-3">
                       <label for="validationCustom13">Attachment</label>
                       <div class="input-group">
-                        <input type="text" name="attachment" class="form-control" id="validationCustom14" required>
+                        <input type="file" name="attachment" class="form-control" id="validationCustom14" required>
                       </div>
                     </div>
                   </div>
@@ -74,7 +74,7 @@
 					<div class="col-md-4 mb-3">
                       <label for="validationCustom13">Status</label>
                       <div class="input-group">
-                        <select name="roll_id" id="validationCustom15" class="form-control" required>
+                        <select name="status" id="validationCustom15" class="form-control" required>
 							<option value="">Select status</option>
 							<option value="1">Closed</option>
 							<option value="2">In-progress</option>

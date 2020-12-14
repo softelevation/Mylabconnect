@@ -21,7 +21,7 @@
       <!-- /Dashboard -->
       <!-- Doctor -->
       <li class="menu-item">
-        <a href="pages/animation.html">
+        <a href="add-new-case">
           <span><i class="material-icons fs-16"></i>Add New Case</span>
         </a>
       </li>
@@ -65,7 +65,7 @@
           <span><i class="fas fa-list-alt"></i>Communication</span>
         </a>
         <ul id="schedule" class="collapse" aria-labelledby="schedule" data-parent="#side-nav-accordion">
-          <li> <a href="support-ticket">Support ticket</a> </li>
+          <li> <a href="support-ticket">Support</a> </li>
           <li> <a href="pages/doctor-schedule/add-schedule.html">Communication</a> </li>
           <li> <a href="pages/doctor-schedule/schedule-list.html">Communication</a> </li>
         </ul>

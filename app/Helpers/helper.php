@@ -11,3 +11,11 @@ function array_except($array, $keys)
     }
     return $array;
 }
+
+
+function pr($array)
+{
+	echo '<pre>';
+	print_r($array);
+	die;
+}

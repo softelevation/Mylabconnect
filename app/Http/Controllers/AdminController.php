@@ -55,7 +55,15 @@ class AdminController extends Controller
 	
 	public function addTicketPost(Request $request){
 		try{
-			$input = array_except($request->all(),array('_token'));
+			$input = $request->all();
+			if(isset($request->attachment) && $request->attachment!=""){
+                $image = $request->file('attachment');   
+                $fileName = time().$image->getClientOriginalName();
+                $filePath = public_path('image_ticket');
+                $uploadStatus = $image->move($filePath,$fileName);
+                $input['attachment'] = $fileName;
+            }
+			$input = array_except($input,array('_token'));
 			$input['user_id'] = Auth::user()->id;
 			Ticket::insert($input);
 			$response['message'] = 'Ticket insert successfully';
@@ -64,5 +72,9 @@ class AdminController extends Controller
 		}catch(\Exception $e){
             return response($this->getErrorResponse($e->getMessage()));
         }
+	}
+	
+	public function addNewCase(){
+		return view('add-new-case');
 	}
 }

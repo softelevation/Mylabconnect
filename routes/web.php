@@ -43,6 +43,7 @@ Route::group(['middleware'=>['auth:sanctum']], function () {
 	Route::get('/support-ticket', 'AdminController@supportTicket');
 	Route::get('/add-ticket', 'AdminController@addTicket');
 	Route::post('/add-ticket', 'AdminController@addTicketPost');
+	Route::get('/add-new-case', 'AdminController@addNewCase');
 });	
 	
 	
